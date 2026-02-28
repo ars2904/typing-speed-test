@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header>
+      <h1>Typing Speed Test</h1>
+
+      <div class="controls">
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+
+        <select id="mode">
+          <option value="timed">Timed (60s)</option>
+          <option value="passage">Passage</option>
+        </select>
+
+        <button id="restart">Restart</button>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div>Time: <span id="time">0</span></div>
+      <div>WPM: <span id="wpm">0</span></div>
+      <div>Accuracy: <span id="accuracy">100</span>%</div>
+    </section>
+
+    <section id="passage" tabindex="0"></section>
+
+    <section class="results hidden">
+      <h2 id="result-message"></h2>
+      <p>WPM: <span id="final-wpm"></span></p>
+      <p>Accuracy: <span id="final-accuracy"></span>%</p>
+      <p>Characters: <span id="char-stats"></span></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
