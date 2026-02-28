@@ -1,56 +1,245 @@
-* {
-  box-sizing: border-box;
+/* ===== RESET ===== */
+.controls button {
+  cursor: pointer;
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+  color: #ffffff;
 }
 
+/* ===== BODY ===== */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   padding: 2rem;
 }
 
+/* ===== APP CONTAINER ===== */
 .app {
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 950px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.6rem;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== CONTROLS ===== */
 .controls {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+.controls label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== SELECT + BUTTON BASE ===== */
+.controls select,
+.controls button {
+  padding: 0.6rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 114, 255, 0.35);
+}
+
+/* ===== CUSTOM SELECT ===== */
+.controls select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+
+  background:
+    linear-gradient(135deg, #36d1dc, #5b86e5),
+    url("data:image/svg+xml,%3Csvg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0 0, right 12px center;
+  background-size: 100% 100%, 18px;
+}
+
+/* ===== CUSTOM SELECT FIXED ===== */
+.controls select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+  padding: 0.6rem 2.8rem 0.6rem 1.3rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+
+  /* Solid fallback color */
+  background-color: #36d1dc;
+
+  /* Gradient */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg fill='%23ffffff' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #36d1dc, #5b86e5);
+
+  background-repeat: no-repeat, no-repeat;
+
+  /* IMPORTANT: Arrow first (top layer) */
+  background-position: right 14px center, center;
+  background-size: 18px, 100% 100%;
+
+  box-shadow: 0 6px 18px rgba(0, 114, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+/* ===== HOVER / FOCUS ===== */
+.controls select:hover,
+.controls button:hover,
+.controls select:focus,
+.controls button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 114, 255, 0.45);
+  outline: none;
+}
+
+/* ===== STATS ===== */
 .stats {
   display: flex;
   gap: 2rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
+.stats div {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.1);
+  min-width: 110px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* ===== PASSAGE BOX ===== */
 #passage {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  min-height: 120px;
-  cursor: text;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  border-radius: 14px;
+  font-size: 1.25rem;
+  line-height: 1.9;
+  min-height: 170px;
+  padding: 2rem;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 500;
+  border: 2px solid #38bdf8;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
 }
 
+#passage:hover {
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.08);
+}
+
+/* ===== TYPING FEEDBACK ===== */
 .correct {
-  color: green;
+  color: #16a34a;
+  font-weight: 600;
 }
 
 .incorrect {
-  color: red;
+  color: #dc2626;
+  font-weight: 600;
   text-decoration: underline;
 }
 
 .current {
-  border-left: 2px solid black;
+  border-left: 3px solid #2563eb;
+  animation: blink 1s step-start infinite;
 }
 
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* ===== RESULTS ===== */
+.results {
+  margin-top: 2.5rem;
+  text-align: center;
+  background: rgba(59, 130, 246, 0.15);
+  padding: 1.8rem 2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+  animation: fadeIn 0.8s ease;
+}
+
+.results h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  color: #60a5fa;
+}
+
+.results p {
+  font-size: 1.15rem;
+  margin: 0.4rem 0;
+}
+
+/* ===== HIDDEN ===== */
 .hidden {
   display: none;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .controls, .stats {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  #passage {
+    font-size: 1rem;
+    min-height: 130px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
 }
